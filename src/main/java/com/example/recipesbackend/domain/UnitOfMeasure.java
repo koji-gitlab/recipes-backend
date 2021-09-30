@@ -1,12 +1,13 @@
 package com.example.recipesbackend.domain;
 
-import lombok.Builder;
-import lombok.Data;
+public enum UnitOfMeasure {
 
-@Data
-@Builder
-public class UnitOfMeasure extends AbstractBaseEntity {
-
-    private String description;
+    tbsp,
+    tsp,
+    cup,
+    mL,
+    gr,
+    kg,
+    L
 
 }

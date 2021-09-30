@@ -2,7 +2,7 @@ package com.example.recipesbackend.runner;
 
 import com.example.recipesbackend.domain.Role;
 import com.example.recipesbackend.domain.User;
-import com.example.recipesbackend.properties.UserProperties;
+import com.example.recipesbackend.properties.AppDataProperties;
 import com.example.recipesbackend.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -14,18 +14,18 @@ import org.springframework.stereotype.Component;
 @Slf4j
 @RequiredArgsConstructor
 @Component
-public class UserCreationRunner implements ApplicationRunner {
+public class AppCreationRunner implements ApplicationRunner {
 
     private final UserRepository userRepository;
 
     private final PasswordEncoder passwordEncoder;
 
-    private final UserProperties userProperties;
+    private final AppDataProperties appDataProperties;
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
         try {
-            for (UserProperties.User newUser : userProperties.getUsers()) {
+            for (AppDataProperties.User newUser : appDataProperties.getUsers()) {
                 User user = User.builder()
                         .userName(newUser.getUserName())
                         .password(passwordEncoder.encode(newUser.getPassword()))

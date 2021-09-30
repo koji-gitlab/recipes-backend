@@ -13,14 +13,14 @@ import java.util.List;
 @ConfigurationProperties("app.data")
 @Getter
 @Setter
-public class UserProperties {
+public class AppDataProperties {
 
     private List<User> users = new ArrayList<>();
 
     @Getter
     @Setter
     @NoArgsConstructor
-    public static  class User {
+    public static class User {
         private String userName;
         private String password;
     }
