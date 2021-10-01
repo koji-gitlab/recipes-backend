@@ -35,7 +35,7 @@ public class RecipeService {
     public Recipe update(String id, Recipe recipe) {
         Recipe oldRecipe = recipeRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException(String.format("Can't found recipe by ID %s", id)));
-        BeanUtils.copyProperties(recipe, oldRecipe, "id", "ingredients");
+        BeanUtils.copyProperties(recipe, oldRecipe, "id", "ingredients", "createdDate");
         oldRecipe.getIngredients().clear();
         if (! CollectionUtils.isEmpty(recipe.getIngredients())) {
             oldRecipe.setIngredients(recipe.getIngredients().stream().map(ingredientRepository::save).collect(Collectors.toSet()));
