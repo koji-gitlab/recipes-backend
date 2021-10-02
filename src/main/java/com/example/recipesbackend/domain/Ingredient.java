@@ -1,5 +1,6 @@
 package com.example.recipesbackend.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -7,6 +8,7 @@ import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 
+@JsonIgnoreProperties({"id", "createdDate", "lastModifiedDate", "createdBy", "lastModifiedBy"})
 @NoArgsConstructor
 @AllArgsConstructor
 @Data

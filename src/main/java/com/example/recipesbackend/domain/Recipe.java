@@ -1,5 +1,6 @@
 package com.example.recipesbackend.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -10,6 +11,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+@JsonIgnoreProperties({"createdBy", "lastModifiedBy"})
 @NoArgsConstructor
 @AllArgsConstructor
 @Data

@@ -1,13 +1,14 @@
 package com.example.recipesbackend.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 import org.springframework.data.annotation.*;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
+@JsonIgnoreProperties({"createdDate", "lastModifiedDate", "createdBy", "lastModifiedBy"})
 @Data
 public abstract class AbstractBaseEntity implements Serializable {
 
@@ -22,11 +23,9 @@ public abstract class AbstractBaseEntity implements Serializable {
     @LastModifiedDate
     private LocalDateTime lastModifiedDate;
 
-    @JsonIgnore
     @CreatedBy
     private String createdBy;
 
-    @JsonIgnore
     @LastModifiedBy
     private String lastModifiedBy;
 
