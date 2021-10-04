@@ -6,8 +6,6 @@ spring:
   data:
     mongodb:
       database: recipes
-#      username:
-#      password:
 
 springdoc:
   swagger-ui:
